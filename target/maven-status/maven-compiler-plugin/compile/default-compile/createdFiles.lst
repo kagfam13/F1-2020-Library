@@ -1,0 +1,6 @@
+data\DataConverter.class
+server\TelemetryServer.class
+server\test\SiebenSegmentAnzeige.class
+server\test\TestDataReader.class
+server\test\TelemetryServerTest.class
+server\test\MarioServer.class
