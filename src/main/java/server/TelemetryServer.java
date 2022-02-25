@@ -31,7 +31,6 @@ public abstract class TelemetryServer {
     }
 
     private void receivedData(DatagramPacket receiveData) throws IOException {
-        //printData(receiveData);
         PacketHeader header = new PacketHeader(receiveData.getData());
         switch(header.getPacketId()) {
             case 0: receivedMotionPacket(new MotionPacket(receiveData.getData())); break;
@@ -40,15 +39,6 @@ public abstract class TelemetryServer {
             case 4: receivedParticipantsDataPacket(new ParticipantsPacket(receiveData.getData())); break;
             case 6: receivedCarTelDataPacket(new CarTelemetryPacket(receiveData.getData())); break;
         }
-
-    }
-
-    protected void printData(DatagramPacket receiveData) {
-        byte[] bA = receiveData.getData();
-        for (byte b: bA) {
-            System.out.print(b + ", ");
-        }
-        System.out.println();
     }
 
     public abstract void receivedSessionPacket(SessionPacket sessionData);
